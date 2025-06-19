@@ -1,97 +1,165 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Login Screen UI - React Native Assignment
 
-# Getting Started
+A beautifully designed login screen UI with navigation flow between welcome screen, login screen, and a logged-in screen.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+- Modern and clean UI design
+- Welcome screen with navigation to login
+- Login screen with email and password validation
+- Show/hide password functionality
+- Simple email validation (checks for @ symbol)
+- Custom Input component for consistent styling
+- Logged In screen showing successful authentication
+- Social login buttons UI
+- Keyboard avoiding behavior
+- Error handling and validation
+- Loading state during login process
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Login Instructions
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+This application allows you to log in with:
+- Any email address that contains the "@" symbol (e.g., `user@example.com`)
+- Any non-empty password
 
-```sh
-# Using npm
+No predefined credentials are needed - simply enter a valid email format and any password to access the logged-in screen.
+
+## Project Structure
+
+- `App.js` - Main app component with React Navigation setup
+- `screens/` - All app screens
+  - `WelcomeScreen.js` - Initial welcome screen
+  - `LoginScreen.js` - Login screen with validation
+  - `LoggedInScreen.js` - Success screen after successful login
+- `components/` - Reusable components
+  - `CustomInput.js` - Custom text input component
+  - `IconsHelper.js` - Helper for loading vector icons
+- `assets/` - Images and data files
+  - `logo.png` - App logo image
+- `api-integration.json` - JSON schema for backend API integration
+- `api-service.js` - Sample implementation of API service functions
+
+## Technologies Used
+
+- React Native
+- React Navigation
+- React Native Vector Icons
+- JavaScript ES6+
+
+# Setup Instructions
+
+## Prerequisites
+
+Before you begin, make sure you have the following installed:
+
+1. [Node.js](https://nodejs.org/) (v16 or newer)
+2. [npm](https://www.npmjs.com/) (comes with Node.js) or [Yarn](https://yarnpkg.com/)
+3. [React Native CLI](https://reactnative.dev/docs/environment-setup)
+4. Android Studio (for Android development)
+5. Xcode (for iOS development, macOS only)
+
+## Installation Steps
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/madboy482/LoginScreenUI.git
+   cd LoginScreenUI
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Install iOS dependencies (macOS only):
+   ```bash
+   cd ios
+   pod install
+   cd ..
+   ```
+
+# Running the App
+
+## Step 1: Start Metro Server
+
+First, start the Metro bundler:
+
+```bash
 npm start
-
-# OR using Yarn
+# or
 yarn start
 ```
 
-## Step 2: Build and run your app
+## Step 2: Run on a Device or Emulator
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+In a separate terminal window:
 
-### Android
+### For Android:
 
-```sh
-# Using npm
+```bash
 npm run android
-
-# OR using Yarn
+# or
 yarn android
 ```
 
-### iOS
+### For iOS (macOS only):
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+```bash
 npm run ios
-
-# OR using Yarn
+# or
 yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
 # Troubleshooting
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Icon Issues on Android
 
-# Learn More
+If icons appear as Chinese characters or boxes on Android:
 
-To learn more about React Native, take a look at the following resources:
+1. Clean the Android build:
+   ```bash
+   cd android && ./gradlew clean
+   cd ..
+   ```
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+2. Rebuild the app:
+   ```bash
+   npm run android
+   ```
+
+## Navigation Issues
+
+If you encounter navigation problems:
+
+1. Check that all required packages are installed:
+   ```bash
+   npm install @react-navigation/native @react-navigation/native-stack react-native-screens react-native-safe-area-context
+   ```
+
+2. Clear the cache:
+   ```bash
+   npm start -- --reset-cache
+   ```
+
+## General Issues
+
+1. If you encounter any build errors, try cleaning the project:
+   ```bash
+   # For iOS (macOS only)
+   cd ios && pod deintegrate && pod install && cd ..
+   
+   # For Android
+   cd android && ./gradlew clean && cd ..
+   ```
+
+2. Verify that your environment is set up correctly according to the [React Native documentation](https://reactnative.dev/docs/environment-setup).
+
+# Contributing
+
+Feel free to submit pull requests or create issues for any bugs or feature requests.
+
+# License
+
+This project is open source and available under the [MIT License](LICENSE).
