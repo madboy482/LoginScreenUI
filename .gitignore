@@ -98,16 +98,92 @@ dist/
 # Android build output
 android/app/build/
 android/build/
-android/captures/
 
-# iOS build output
+# Additional React Native specific exclusions
+#
+
+# iOS specific
+ios/*.dSYM.zip
+ios/*.ipa
+ios/*.mobileprovision
+ios/Pods/
 ios/build/
-ios/DerivedData/
+ios/*.xcarchive
+
+# Android specific
+android/.project
+android/app/.project
+android/app/bin/
+android/app/gen/
+android/app/out/
+android/captures/
+android/app/release/
+*.apk
+*.aab
+*.ap_
+output.json
 
 # Watchman
 .watchmanconfig
 
+# React Native log files
+*.log
+debug.log
+error.log
+
+# Buck (Facebook's build system)
+buck-out/
+.buckconfig.local
+.buckd/
+
+# Hermes
+android/app/src/main/assets/index.android.bundle
+ios/main.jsbundle
+
+# React Native Flipper
+*.flipper-config.js
+
+# Firebase
+google-services.json
+GoogleService-Info.plist
+
+# Sentry
+sentry.properties
+
+# Realm
+*.realm
+*.realm.lock
+*.realm.note
+*.realm.management/
+
+# Deep linking
+android/app/src/main/assets/app.manifest
+android/app/src/main/assets/shell-app.bundle
+android/app/src/main/assets/shell-app-manifest.json
+
 # macOS
-._*
-.Spotlight-V100
-.Trashes
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# Cache files
+.eslintcache
+.stylelintcache
+
+# React DevTools
+.react-devtools
+
+# Temporary project files
+TODO.md
+NOTES.md
